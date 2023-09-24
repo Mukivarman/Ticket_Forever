@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/OrderHistory.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+     <p>Hello GET MOVIE TICKETS EASY.! </p> 
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/Home}"><img th:src="@{/images/icon/house-fill.svg}"> Home</a>
+  <a th:href="@{/UserPage}"><img th:src="@{/images/icon/person-fill-gear.svg}" > Profile</a>
+  <a th:href="@{/OrderHistory}" class="active" ><img th:src="@{/images/icon/clock-history.svg}" > Order History</a>
+  <a href="#"> Support </a>
+  <a th:href="@{/Logout}">Logout</a>
+</div>
+<section id="movies">
+   
+    <table>
+        <thead>
+            <th>Movie Name</th>
+            <th>BookingDate</th>
+            <th>Time of book</th>
+            <th>Movie Screen Date</th>
+            <th>Show Time</th>
+            <th>Seat Numbers</th>
+            <th>Ticket Price</th>
+            
+            
+        </thead>
+        <tbody>
+            <tr th:each="his:${his}">
+                <td th:text="${his.moviename}"></td>
+                <td th:text="${his.bookingdate}"></td>
+                <td th:text="${his.bookingtime}"></td>
+                <td th:text="${his.showdate}"></td>
+                <td th:text="${his.showtime}"></td>
+                <td th:text="${his.seatnum}"></td>
+                <td th:text="${his.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+ <div class="wish">
+<h2>Easy To Get Tickets</h2>
+<br>
+<a th:href="@{/Home}">Home</a>
+<a href="/Support">Support</a> 
+<a th:href="@{/UserPage}">User</a>
+</div>
+</form>
+  
+   
+
+
+ 
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/Register.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      <p>GET MOVIE TICKETS EASY.!</p> 
+    </div>
+   
+    
+<div class="sidebar">
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/UserLogin}">Login</a>
+    <a th:href="@{/UserReg}" class="active" >Register</a>
+    <a href="#about">About us</a>
+    <a href="#about">Cantact us</a>
+</div>
+  
+ 
+<div class="container mt-5" id="movies">
+    <section class="login">
+    <fieldset class="main">
+    <div>
+      <h1 id="login">Register</h1>
+    </div> 
+    
+    <br>
+    <form th:action="@{/Usersave}" method="get">
+		<h2 th:text="${er}" style="color: red;"></h2>
+    <input type="text" name="Username"class="in1" placeholder="Username" required>
+    <input  type="text" name="Email" class="in1" placeholder="Email id" required>
+    <input type="password"  name="Password" class="in1" placeholder="Password" required>
+    
+  
+    <button type="submit">Register</button>
+   <br>
+   </form>
+   <br>
+    <h4>Already Have Account</h4>
+    
+        <a th:href="@{/UserLogin}"><button>Login</button></a>
+
+</fieldset>
+
+
+    </section>
+
+ </div>
+
+
+ 
+</body>
+</html>

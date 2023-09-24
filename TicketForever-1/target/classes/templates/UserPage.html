@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/SelectShow.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body style="background-color: rgb(8, 135, 146);">
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+     <h1 id="webname">TICKETS FOREVER.com</h1>
+     <p>GET MOVIE TICKETS EASY.! </p>  
+    </div>
+   
+    
+<div class="sidebar">
+    <a th:href="@{/Home}"><img th:src="@{/images/icon/house-fill.svg}"> Home</a>
+    <a th:href="@{/UserPage}" class="active" ><img th:src="@{/images/icon/person-fill-gear.svg}" > Profile</a>
+    <a th:href="@{/OrderHistory}"><img th:src="@{/images/icon/clock-history.svg}" > Order History</a>
+    <a href="#news"> Support </a>
+    <a th:href="@{/Logout}">Logout</a>
+</div>
+<section id="movies">
+
+    <div>
+        <form th:action="@{/EditUser}" method="post">
+        <pre>
+            <h2>Edit Your Profile</h2>
+<label>User Name</label>       <input type="text" th:value="${usr.Username}" name="uname" required>
+
+<label>Email id</label>	<input type="text" th:value="${usr.Email}" name="uemail" required>
+        
+<label>Password</label>        <input type="text" th:value="${usr.Password}" name="upass" required>
+                   
+    <button type="submit">ClickTo Change Details</button>
+</form>
+    </pre>
+<h3 th:text="${update}"></h3>
+    </div>
+   
+    <div>
+        <img th:src="@{/images/cute.png}" width="40%">
+        <br>
+        <h1>Hi <Span th:text="${usr.Username}"></Span></h1>
+        <br>
+
+    </div>
+
+</section>
+  
+</body>
+</html>

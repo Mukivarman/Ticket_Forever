@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/Register.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      <p>GET MOVIE TICKETS EASY.!</p> 
+    </div>
+   
+    
+<div class="sidebar">
+  
+    <a th:href="@{/}">Home</a>
+  <a class="active" href="#">Admin LOGIN</a>
+   
+</div>
+  
+ 
+<div class="container mt-5" id="movies">
+    <section class="login">
+        
+        
+        <fieldset class="main">
+   
+    <div>
+        <br>
+  
+           <h1 id="login">Admin Login</h1>
+               </div> 
+           <h3 th:text="${er}" style="color: red;"></h3>
+    <br><br>
+    <form th:action="@{/admin}" method="post">
+    <input  type="text" class="in1" name="AdminName" placeholder="Adminname" required>
+    <br><br>
+    <input type="password" class="in1" name="password" placeholder="password" required>
+    <br>
+<br>
+    <button type="submit">Login</button>
+  </form>
+    <br>
+    <br>
+    <br>
+    
+
+</fieldset>
+
+
+    </section>
+
+
+
+ </div>
+
+ 
+</body>
+</html>

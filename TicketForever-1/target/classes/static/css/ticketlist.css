@@ -1,0 +1,188 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+*{
+    
+    font-weight: bold;
+}
+#head{
+    font-variant: small-caps;
+    font-family: 'Black Ops One', cursive;
+    position:sticky;
+    top: 0;
+    z-index: 100;
+}
+#webname{
+    font-size: 220%;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #d4d5dd;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color:#0d6efdff;
+    border: 3px solid rgb(55, 51, 51);
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+}
+
+#movies{
+    margin-top: 30px;
+    margin-left: 280px;
+    
+
+  
+  }
+  @media screen and (max-width: 700px) {
+
+    #movies {float: none;}
+  }
+  
+  @media screen and (max-width: 500px) {
+    #movies{
+      
+      float: left;
+      margin-left: 0px;
+    }
+  
+
+}
+.card{
+  
+    height: 300px;
+}
+
+.seat {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+.selected {
+    background-color:limegreen;
+}
+.seat-container{
+    width: 500px;
+    padding: 1%;
+    margin: auto;
+
+  }
+  #con-ticket{
+    font-family: 'Black Ops One', cursive;
+    font-size: 220%;
+    border: 0px;
+    background-color:white;
+    border-radius: .5em;
+    box-shadow:3px 3px 4px black;
+
+
+  }
+
+
+
+#movies {
+  display: flex;
+  align-items: flex-start; 
+  margin-top: 50px;
+  margin-left: 280px;
+
+}
+
+.seats {
+  flex: 1; 
+  margin: 2%;
+  border-radius: .5em;
+  text-align: center;
+
+
+}
+.booked{
+	pointer-events: none;
+	background-color:red;
+	
+}
+
+.details {
+  flex: 1; 
+  margin: 2%;
+  border-radius: .5em;
+  padding: 1%;
+  background-color: #7d7676;
+
+}
+pre{
+  
+  font-size: 90%;
+  
+}
+span{
+  color:black;
+  font-size:xx-large;
+}
+span::after{
+	margin-left: 4px;
+}
+span::before{
+	margin-right: 4px;
+	
+}
+.red{
+  background-color: red;
+  width: 15px;
+  height: 15px;
+}
+.w{
+  background-color: rgb(145, 145, 145);
+  border: 1px solid black;
+  width: 15px;
+  height: 15px;
+}.green{
+  background-color: limegreen;
+  width: 15px;
+  height: 15px;
+}
+

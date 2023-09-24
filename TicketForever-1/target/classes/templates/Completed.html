@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/SelectShow.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      <p>GET MOVIE TICKETS EASY.!</p> 
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/Home}"><img th:src="@{/images/icon/house-fill.svg}"> Home</a>
+  <a th:href="@{/UserPage}"><img th:src="@{/images/icon/person-fill-gear.svg}" > Profile</a>
+  <a th:href="@{/OrderHistory}"><img src="/images/icon/clock-history.svg" > Order History</a>
+  <a href="#"> Support </a> 
+  <a th:href="@{/Logout}">Logout</a>
+</div>
+<section id="movies">
+
+    <div>
+       <img  th:src="@{${'/display?id=' + mv.Mvid}}" width="80%"  alt="image">
+       <br>
+        <br>
+        <h2 th:text="${mv.Mvname}"></h2> 
+    </div>
+   
+    <div>
+        
+            <pre>
+<label>Date: </label>      <input type="text" th:value="${date}" readonly >
+
+<label>Show-time:</label>  <input type="text" th:value="${show}" readonly>
+
+<label>Seats</label>       <input type="text" th:value="${seat}" readonly>
+
+<label>Total Price</label> <input type="text" th:value="'Rs: ' + ${total} + '.00'" readonly>
+
+            <a th:href="@{/Home}">Home</a>
+            </pre>
+            <img th:src="@{/images/completed.png}" width="40%">
+       
+    </div>
+
+</section>
+<div class="wish">
+<h2>Enjoy your Movies...</h2>
+<a th:href="@{/Home}">Home</a>
+<a href="/Support">Support</a> 
+<a th:href="@{/UserPage}">User</a>
+</div>
+  
+   
+
+
+ 
+</body>
+</html>

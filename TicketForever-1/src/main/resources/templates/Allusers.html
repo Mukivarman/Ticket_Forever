@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/OrderHistory.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+     <p>Hello GET MOVIE TICKETS EASY.! </p> 
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/viewadmin}">Admin Page</a>
+ <a  th:href="@{/AllHistory}" >History</a>
+ <a th:href="@{/GetAllUser}" class="active" >User List</a>
+  <a th:href="@{/LogoutAdmin}">Admin Logout</a>
+  <a th:href="@{/}">Home</a>
+
+</div>
+<section id="movies">
+   		<h2>All Users List</h2>
+    <table>
+        <thead>
+			<th>User Id</th>
+			<th>User Name</th>
+			<th>User Email</th>
+            
+            
+        </thead>
+        <tbody>
+            <tr th:each="usr:${usr}">
+				<td th:text="${usr.userid}"></td>
+				<td th:text="${usr.username}"></td>
+				<td th:text="${usr.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+ 
+  
+</body>
+</html>

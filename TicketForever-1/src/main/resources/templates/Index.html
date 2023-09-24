@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+     <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      <p>Hello <span th:text="${u}"></span> GET MOVIE TICKETS EASY.! </p> 
+      
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/Home}" class="active" ><img th:src="@{/images/icon/house-fill.svg}"> Home</a>
+  <a th:href="@{/UserPage}"><img th:src="@{/images/icon/person-fill-gear.svg}" > Profile</a>
+  <a th:href="@{/OrderHistory}"><img th:src="@{/images/icon/clock-history.svg}" > Order History</a>
+  <a href="#"> Support </a>
+  
+  <a th:href="@{/Logout}">Logout</a>
+</div>
+  
+ <div class="container mt-5" id="movies">
+ 
+  <div class="row">
+    <div class="col-sm-4" th:each="mv:${mv}">
+      <div class="card" style="width: 18rem;">
+	<img  th:src="@{${'/display?id=' + mv.Mvid}}"  class="card-img-top" alt="">
+
+        <div class="card-body">
+          <h5 class="st" th:text="${mv.Mvname}"></h5>
+          <p class="st" th:text="${mv.Mgenre}"></p>
+<a th:href="@{'/book?id=' + ${mv.Mvid}}" class="btn btn-primary">BOOK TICKETS</a>
+        </div>
+    </div>
+    </div>
+</div>
+ </div>
+ 
+ 
+</body>
+</html>

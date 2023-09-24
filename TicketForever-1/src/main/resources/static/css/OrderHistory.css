@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+*{
+    
+    font-weight: bold;
+}
+#head{
+    font-variant: small-caps;
+    font-family: 'Black Ops One', cursive;
+    position: sticky;
+    top: 0%;
+    z-index: 100;
+}
+#webname{
+    font-size: 200%;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 230px;
+    background-color: #d4d5dd;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color:#0d6efdff;
+    border: 3px solid rgb(55, 51, 51);
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative
+
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+}
+
+#movies{
+    margin-top: 30px;
+    margin-left: 280px;
+    padding: 2%;
+  
+   
+  
+  }
+  @media screen and (max-width: 700px) {
+
+    #movies {float: none;}
+  }
+  
+  @media screen and (max-width: 600px) {
+    #movies{
+      
+      float: left;
+      margin-left: 0px;
+    }
+
+}
+.wish{
+    font-family: 'Black Ops One', cursive;
+    text-align: center;
+}
+.wish a{
+    padding: 1%;
+    text-decoration: none;
+}
+pre{
+    font-size: 145%;
+}
+table th{
+    border-top: 5px solid black;
+    }
+
+table th,td{
+    width: 2%;
+    height: 50px;
+    border-bottom: 3px solid blue;
+    text-align: center;
+
+}
+span{
+  color:black;
+  font-size:xx-large;
+}
+span::after{
+	margin-left: 4px;
+}
+span::before{
+	margin-right: 4px;
+	
+}

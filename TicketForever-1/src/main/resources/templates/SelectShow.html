@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+   </head>
+<body>
+      <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      <p>Hello <span th:text="${name}"></span> GET MOVIE TICKETS EASY.! </p> 
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/Home}"><img th:src="@{/images/icon/house-fill.svg}"> Home</a>
+  <a th:href="@{/UserPage}"><img th:src="@{/images/icon/person-fill-gear.svg}"> Profile</a>
+  <a href="" class="active" >Processing</a>
+  <a th:href="@{/OrderHistory}"><img th:src="@{/images/icon/clock-history.svg}" > Order History</a>
+  <a href="#"> Support </a>
+  <a th:href="@{/Logout}">Logout</a>
+</div>
+<form th:action="@{/SelectSeat}" method="post">
+<section id="movies">
+        <div>
+        <pre>
+<label>MOvie Name</label>       <input type="text" th:value="${mv.Mvname}" readonly>
+        
+<label>Ticket Price :</label>   <input type="text" th:value="'Rs.'+${mv.Mvprice}+'.00'" readonly>
+      
+<label>Date :</label>           <input type="date" name="date" id="date" required th:min="${mindate}" th:max="${max}" onchange="gettime()">  
+
+<label>Select show</label>      <select name="show" id="time" required>
+			<option></option>
+            <option value="9.00">Show-1 (09:00AM)</option>
+            <option value="12.00">Show-2 (12:00PM)</option>
+            <option value="16.00">Show-3 (04:00pm)</option>
+            <option value="20.00">Show-4 (08:00PM)</option>
+        </select>
+    </pre>
+<script th:src="@{/js/SelectDate.js}"></script>
+	<h2 th:text="${er}" style="color: red;"></h2>
+    </div>
+   
+    <div class="mvimg">
+<img  th:src="@{${'/display?id=' + mv.Mvid}}" width="100%">
+
+        <br>
+        <br>
+        <h2 th:text="${mv.Mvname}"></h2>
+        <br>
+       <a href="/"></a> 
+
+    
+    </div>
+
+</section>
+ 
+	<div class="wish">
+	<button type="submit"><h2>Click TO next</h2></button>
+	<br>
+	<br>
+	<a th:href="@{/Home}">Home</a>
+	<a href="/Support">Support</a> 
+	<a th:href="@{/UserPage}">User</a>
+	</div>
+	</form>
+	   
+	
+	<link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+	<link th:href="@{/css/SelectShow.css}" rel="stylesheet" type="text/css" > 
+	  
+ 
+</body>
+</html>

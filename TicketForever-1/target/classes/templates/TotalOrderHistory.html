@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <link th:href="@{/css/OrderHistory.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+     <p>Hello GET MOVIE TICKETS EASY.! </p> 
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/viewadmin}">Admin Page</a>
+   <a th:href="@{/GetAllUser}" >User List</a>
+ <a  th:href="@{/AllHistory}" class="active" >History</a>
+  <a th:href="@{/LogoutAdmin}">Admin Logout</a>
+  <a th:href="@{/}">Home</a>
+
+</div>
+<section id="movies">
+   		<h2>All Bookings</h2>
+    <table>
+        <thead>
+			<th>H.Id</th>
+			<th>User Name</th>
+			<th>User Email</th>
+             <th>Movie Name</th>
+            <th>BookingDate-Time of book</th>
+            <th>Movie Screen Date</th>
+            <th>Show Time</th>
+           <th>Seat Numbers</th>
+            <th>Ticket Price</th>
+            
+            
+        </thead>
+        <tbody>
+            <tr th:each="his:${his}">
+				<td th:text="${his.hid}"></td>
+				<td th:text="${his.users.username}"></td>
+				<td th:text="${his.users.email}"></td>
+                <td th:text="${his.moviename}"></td>
+                <td th:text="${his.bookingdate}+'-'+${his.bookingtime}"></td>  
+                <td th:text="${his.showdate}"></td>
+                <td th:text="${his.showtime}"></td>
+                <td th:text="${his.seatnum}"></td>
+                <td th:text="${his.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+ 
+  
+   
+
+
+ 
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstarp.js}"></script>
+    <link  th:href="@{/css/Admin.css}" rel="stylesheet" type="text/css" > 
+  </head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/viewadmin}" href="#" class="active">Admin Page</a>
+   <a th:href="@{/GetAllUser}" >User List</a>
+  <a th:href="@{/AllHistory}" href="#" >Users History</a>
+   <a th:href="@{/LogoutAdmin}" href="#" >Admin Logout</a>
+  <a th:href="@{/}" href="#">Home</a>
+</div>
+
+
+
+<section id="movies">
+	
+    <div class="accordion" >
+		
+        <div class="accordion-item" id="add">
+			
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                Add MOVIE
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <form th:action="@{/addmv}" method="post" enctype="multipart/form-data" >
+                <pre>
+		<label>Id Is Auto Genrated</label>      
+<label>MOVIE Name :</label>        <input type="text" name="Mvname" required>
+
+<label>Movie Genre</label>	   <input type="text" name="Mgenre" required>
+
+<label>Movie Image</label>         <input type="file" name="img" accept=".jpeg,.jpg,.gif,.avif" required>
+
+<label>Ticket Price</label>        <input type="number" name="Mvprice" required>
+
+<label>Number Of Seats</label>     <input type="number" name="Mvseat" required>
+
+                <button type="submit">Add MOVIE TO Show List</button>
+                </pre>    
+            </form>
+<iframe th:src="@{http://localhost:8080/}" title="Home" width="100%" height="600px">
+</iframe>
+            </div>
+          </div>
+        </div>
+    <div>
+      
+      <!--Show list-->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            Show Movie LIst
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+          <div class="accordion-body">
+           <table>
+            <thead>
+			<th>id</th>
+            <th>MOVIE Name</th>
+            <th>Number Of seats</th>
+            <th>Ticket Price</th>
+            <th>Movie Genre</th>
+        </thead>
+        <tbody>
+			
+            <tr th:each="mv : ${mv}">
+                <td th:text="${mv.Mvid}"></td>
+                <td th:text="${mv.Mvname}"></td>
+                <td th:text="${mv.Mvprice}"></td>
+                <td th:text="${mv.Mvseat}"></td>
+                <td th:text="${mv.Mgenre}"></td>
+               <td>
+				   <form th:action="@{/deletemv}" method="post" >
+				   <input type="hidden" name="Mvid" th:value="${mv.Mvid}" >
+				   <button type="submit">Delete Movie</button>
+				    </form>
+               </td>
+               </tr>   
+        </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+      <!--admin mange-->
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+            Manage Admin
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfive">
+          <div class="accordion-body">
+			  
+<form th:action="@{/admin_register}" method="post">
+                           <pre>
+
+<label>Admin name</label>  <input type="text" name="AdminName"  id="admin-name" required>
+
+<label>Set Password</label>  <input type="password" name="password"  id="key" required >
+
+                <button type="submit">Add Admin</button>
+                </pre>
+</form>
+  
+    <table>
+        <thead>
+            <tr>
+                <th>Admin ID</th>
+                <th>Admin Name</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="admin : ${admins}">
+                <td th:text="${admin.aid}"></td>
+                <td th:text="${admin.AdminName}"></td>
+                <td th:text="${admin.password}"></td>
+                <td>
+					<form action="/deleteadmin" method="post">
+                    <input type="hidden" name="Aid" th:value="${admin.aid}" />
+                    <button type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+ 
+</body>
+</html>

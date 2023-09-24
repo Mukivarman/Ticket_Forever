@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+  
+</head>
+<body>
+    <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+    <h1 id="webname">TICKETS FOREVER.com</h1>
+    </div>
+   
+    
+<div class="sidebar">
+  <a th:href="@{/Home}"><img th:src="@{/images/icon/house-fill.svg}"> Home</a>
+  <a th:href="@{/UserPage}"><img th:src="@{/images/icon/person-fill-gear.svg}" > Profile</a>
+  <a class="active">Processing</a>
+  <a th:href="@{/OrderHistory}"><img th:src="@{/images/icon/clock-history.svg}" > Order History</a>
+  <a href="#"> Support </a>
+  <a th:href="@{/Logout}">Logout</a>
+</div>
+  
+
+    <div  id="movies">
+        
+
+        <div class="seats">
+	<label>Total Seat: </label><input type="text" th:value="${seat}" id="tseat"></input>
+	<br><br>
+<label><label class="red"></label>Alredy Booked </label><label>   <label class="w"></label>Avlaiable Seats </label>   <label class="green"></label>Selected By You</label>  
+	
+			<br>
+            <h2 style="background-color:rgb(235, 160, 19);margin-left: 5%; margin-right: 5%;">screen</h2>
+            <div class="seat-container">
+				
+            </div>
+
+        </div>
+           
+        <div class="details">
+				
+            <form th:action="@{/Completed}"  method="post">
+               <pre> 
+				           <p>Max 5 Seats Allowed</p> 
+        <label>MOVIE name:</label>       <input type="text" th:value="${mv.Mvname}" readonly>
+
+        <label>TicketPrice</label>       <input type="number" th:value="${mv.Mvprice}" id="Price" readonly>
+
+        <label>date: </label>            <input type="date" th:value="${date}" readonly >
+
+        <label>show Time</label>         <input type="text" th:value="${show}" readonly>
+
+        <label>Seat Number</label>       <input type="text" id="seat-select" name="seatnum"  readonly >
+
+        <label>TICKETS</label>           <input type="number" id="count" name="ticketcount"  readonly >
+
+        <label>Total Price</label>       <input type="number" name="totalprice"  id="totalPrice" readonly required>
+
+        
+                   <button id="con-ticket" type="submit">Confirm Ticket</button>
+                </pre>
+            </form>
+
+          
+        </div>
+        <br>
+       
+        <br>
+        <br>
+        <br>
+        </div>
+          <script th:src="@{/js/TicketList.js}"></script>
+	<script th:inline="javascript">
+    const b = /*[[${bookedseat}]]*/[];
+    for(let i=0;i<b.length;i++){
+    const c=document.querySelector(`.seat[data-seatnum="${b[i]}"]`);
+    c.setAttribute("data-booked",true);
+    c.classList.add('booked');
+    console.log(c);
+  
+}
+      </script>
+  
+    
+   <link th:href="@{/css/bootstarp.css}" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" th:href="@{/css/ticketlist.css}"> 
+ 
+ 
+</body>
+</html>

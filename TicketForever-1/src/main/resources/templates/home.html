@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE MOVIE TICKETS</title>
+    <link rel="stylesheet" th:href="@{/css/bootstarp.css}">  
+    <link rel="stylesheet" th:href="@{/css/Index.css}" type="text/css"  > 
+
+  </head>
+</head>
+<body>
+	 <div id="head" class="container-fluid p-4 bg-primary text-white text-center">
+      <h1 id="webname">TICKETS FOREVER.com</h1>
+      <p>GET MOVIE TICKETS EASY.!</p> 
+    </div>
+   
+    
+<div class="sidebar">
+  <a class="active" th:href="@{/}">Home</a>
+  <a th:href="@{/UserLogin}">Login</a>
+  <a th:href="@{/UserReg}">Register</a>
+  <a th:href="@{/AdminLogin}">Admin Login</a>
+  <a href="#">Cantact us</a>
+</div>
+  
+ 
+<div class="container mt-5" id="movies">
+ 
+  <div class="row">
+    <div class="col-sm-4" th:each="mv:${mv}">
+      <div class="card" style="width: 18rem;">
+	<img  th:src="@{${'/display?id=' + mv.Mvid}}"  class="card-img-top" alt="Image">
+
+        <div class="card-body">
+          <h4 class="st" th:text="${mv.Mvname}"></h4>
+          <p class="st" th:text="${mv.Mgenre}"></p>
+<a th:href="@{'/book?id=' + ${mv.Mvid}}" class="btn btn-primary">BOOK TICKETS</a>
+        </div>
+    </div>
+    </div>
+</div>
+ </div>
+ 
+ 
+
+</body>
+</html>
